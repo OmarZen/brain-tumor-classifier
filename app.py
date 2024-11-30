@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request, render_template, jsonify
 from PIL import Image
 import torch
 from torchvision import transforms
@@ -59,7 +59,10 @@ def index():
     return render_template('index.html')
 
 
-# Run the app
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+@app.route('/')
+def home():
+    return "Hello, Vercel!"
+
+if __name__ == "__main__":
+    app.run()
 
